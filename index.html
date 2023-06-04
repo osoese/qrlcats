@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Open LCATS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+  </head>
+
+  <script>
+    /* Open when someone clicks on the span element */
+    function slideOpen() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function slideClose() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+  </script>
+
+  <body>
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="slideClose()">&times;</a>
+        
+        <!-- Overlay content -->
+        <div id="scanLog" class="overlay-content">
+            <a href="#">Cart FUnction A</a>
+            <a href="#">Cart Function B</a>
+        </div>
+    
+    </div>
+      
+    <!-- Use any element to open/show the overlay navigation menu -->
+    <span style="cursor: hand;" onclick="slideOpen()">&nbsp;[=></span>
+    <div id="container">
+        <div class="scanBar">
+            <div class="row" id="inventoryCartCount">0</div>
+            <div class="row" style="display: inline-block; padding-left: 2vw;">
+                <a id="btn-scan-qr">
+                    <img src="./src/img/1499401426qr_icon.svg">
+                <a/>
+            </div>
+            <div class="row" style="display: 'inline-block'; width: 80vw; padding-bottom: 30px; padding-left: 2vw;">
+                <input id="barcode-id" type="text" />
+            </div>
+        </div>
+        <h1>Open LCATS</h1>
+
+        <canvas hidden="" id="qr-canvas"></canvas>
+
+        <div id="qr-result" hidden="">
+            <b>Data:</b> <span id="outputData"></span>
+        </div>
+
+        <div id="termPanel">
+            <b>Terminal:</b> <span id="outputTerminal"></span>
+        </div>
+
+        <div id="scannerParse">
+            <b>Scan Parse A:</b> <pre id="outputScannerParse"></span>
+        </div>
+    </div>
+
+    <script src="./src/qrCodeScanner.js"></script>
+  </body>
+</html>
